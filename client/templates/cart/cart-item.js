@@ -1,13 +1,22 @@
 /**
  * Created by jonathan on 28/02/2016.
  */
+
+/**
+ * Template helpers
+ */
 Template.cartItem.helpers({
-   purchase_amount:function(){
+    //Returns how many of the products are in the cart
+    purchase_amount:function(){
        return Purchases.findOne(this._id).amount;
    }
 });
 
+/**
+ * Template events
+ */
 Template.cartItem.events({
+    //Handles when a product has been deleted from the cart
     'click .deletePurchase': function(event, template) {
         var that = this;
         var purchase = Purchases.findOne(this._id);
@@ -15,6 +24,7 @@ Template.cartItem.events({
             Purchases.remove(that._id);
         });
     },
+    //Handles when the amount of a product has been updated
     'change .amountPurchase': function(event, template) {
 
         var value = parseInt($(event.target).val());

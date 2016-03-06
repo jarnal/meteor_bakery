@@ -1,7 +1,30 @@
 /**
  * Created by jonathan on 26/02/2016.
  */
+
+/**
+ * Template helpers
+ */
+Template.productItem.helpers({
+    //Returns the remaining stock of the product
+    thestock:function(template){
+       return this.stock;
+    },
+    //Returns if the remaining stock is too low a error class name added to the amount input
+    classInput:function(template){
+        return this.stock == 0 ? "has-error" : "";
+    },
+    //Returns if the add to cart button has to be disabled (if remaining stock is too low)
+    isDisabled:function(){
+        return this.stock == 0;
+    }
+});
+
+/**
+ * Template events
+ */
 Template.productItem.events({
+    //Handles when the add to cart button has been clicked
     'click .cart-button': function(event, template) {
         var product_id = this._id;
         var amount = $(event.target).parent().find(".amount");
@@ -22,17 +45,5 @@ Template.productItem.events({
         Products.update(product_id, {$inc:{stock:-amount.val()}});
 
         amount.val(1);
-    }
-});
-
-Template.productItem.helpers({
-    thestock:function(template){
-       return this.stock;
-    },
-    classInput:function(template){
-        return this.stock == 0 ? "has-error" : "";
-    },
-    isDisabled:function(){
-        return this.stock == 0;
     }
 });

@@ -3,7 +3,7 @@
  */
 
 /**
- * Bakeries details helpers
+ * Template helpers
  */
 Template.bakeryDetails.helpers({
     //Returns the list of products of the bakery
@@ -14,7 +14,7 @@ Template.bakeryDetails.helpers({
         }
         return Products.find({'bakery_id':this._id});
     },
-    //Returns the list of catogories
+    //Returns the list of categories
     categories: function(){
         return Categories.find();
     },
@@ -32,21 +32,28 @@ Template.bakeryDetails.helpers({
 });
 
 /**
- * Bakeries details events
+ * Template events
  */
 Template.bakeryDetails.events({
+    //Handles when the category select has been clicked
     'change #categorySelection': function(event, template) {
         var value = $(event.target).val();
         Session.set('categorySelected', value);
     }
 });
 
+/**
+ * Template onRendered event
+ */
 Template.bakeryDetails.onRendered(function() {
     GoogleMaps.load();
 });
 
+/**
+ * Template onCreated event
+ */
 Template.bakeryDetails.onCreated(function() {
-
+    //Initializes the map of the bakery
     GoogleMaps.ready('exampleMap', function(map) {
         var marker = new google.maps.Marker({
             position: map.options.center,
@@ -55,6 +62,9 @@ Template.bakeryDetails.onCreated(function() {
     });
 });
 
+/**
+ * Template onDestroyed event
+ */
 Template.bakeryDetails.onDestroyed(function(){
     Session.set('categorySelected', undefined);
 });
