@@ -1,0 +1,42 @@
+<template name="bakeryDetails">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <h2>{{name}}</h2>
+            <h3>{{address.name}}</h3>
+            <h3>Téléphone : {{phone_number}}</h3>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <img src="/img/{{image}}">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <div class="map-container">
+                {{> googleMap name="exampleMap" options=exampleMapOptions}}
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <h4>Horaires :</h4>
+            <h5>Lundi : {{schedule.monday}}</h5>
+            <h5>Mardi : {{schedule.tuesday}}</h5>
+            <h5>Mercredi : {{schedule.wednesday}}</h5>
+            <h5>Jeudi : {{schedule.thursday}}</h5>
+            <h5>Vendredi : {{schedule.friday}}</h5>
+            <h5>Samedi : {{schedule.saturday}}</h5>
+            <h5>Dimanche : {{schedule.friday}}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <select id="categorySelection">
+                <option value="all" selected>Tous</option>
+                {{#each categories}}
+                {{> categoryOptionItem }}
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        {{#each products}}
+        {{> productItem }}
+        {{/each}}
+    </div>
+</template>

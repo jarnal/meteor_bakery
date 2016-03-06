@@ -1,0 +1,17 @@
+<template name="productItem">
+    <div data-id="{{_id}}" class="col-md-3 col-sm-4 col-xs-6 col-lg-2 product">
+        <div class="product-inner">
+            <img class="product-image" src="/img/{{image}}">
+            <div class="product-content">
+                <h4>{{name}}</h4>
+                <p>{{price}}€</p>
+                <p class="">Stock: {{thestock}}</p>
+                <div class="form-group {{classInput}}">
+                    <label for="amount">Amount</label>
+                    <input id="amount" class="form-control amount" type="number" value="1" min="1" max="{{stock}}" disabled="{{isDisabled}}">
+                </div>
+                <button data-id="{{_id}}" class="cart-button btn btn-primary" disabled="{{isDisabled}}">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</template>

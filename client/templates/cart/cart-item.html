@@ -1,0 +1,15 @@
+<template name="cartItem">
+    <div data-id="{{_id}}" data-product-id="{{product_id}}" data-last-amount="{{amount}}" class="cart-item-container">
+        <div>
+            <div class="cart-item">
+                <img class="cart-image" src="/img/{{product.image}}">
+                <div class="cart-description">
+                    <h4>{{product.name}}</h4>
+                    <h5>{{product.price}}€</h5>
+                </div>
+                <input type="number" class="amountPurchase" min="1" max="" value="{{purchase_amount}}">
+                <button type="button" class="btn btn-primary deletePurchase">Delete</button>
+            </div>
+        </div>
+    </div>
+</template>

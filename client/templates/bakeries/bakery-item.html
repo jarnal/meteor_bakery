@@ -1,0 +1,10 @@
+<template name="bakeryItem">
+    <div class="bakery col-md-3">
+        <div class="bakery-inner">
+            <img src="/img/{{image}}">
+            <h2 class="bakery-name-label">{{name}}</h2>
+            <h3 class="bakery-address-label">{{address.name}}</h3>
+            <a href="{{pathFor 'bakeryDetails'}}" class="btn btn-primary bakery-choice">Choisir</a>
+        </div>
+    </div>
+</template>
