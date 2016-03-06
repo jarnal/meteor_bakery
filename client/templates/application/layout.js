@@ -2,6 +2,7 @@
  * Created by jonathan on 03/03/2016.
  */
 Template.layout.helpers({
+    //
     cart_items:function(){
         var purchases = Purchases.find({user_id:Meteor.userId()}).fetch();
         var amount = 0;
