@@ -61,6 +61,7 @@ if (Products.find().count() === 0) {
 
     var firstBakery = Bakeries.findOne({name: 'Au bon pain'});
     var secondBakery = Bakeries.findOne({name: 'Le fournil'});
+    var pizzeria = Bakeries.findOne({name: 'Mamma mia'});
 
     var sampleProducts = [
         {
