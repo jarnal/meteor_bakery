@@ -2,4 +2,6 @@
 Meteor bakery app
 
 # Usage
-Clone the repository and launch with "meteor" command
+- Clone the repository
+- Launch meteor with "meteor" command
+- Go to http://localhost:3000 and enjoy !
